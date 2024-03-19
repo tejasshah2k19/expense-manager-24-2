@@ -72,7 +72,7 @@
 			<form action="saveincome" method="post">
 				Title: <input type="text" name="title"> <br><br>
 				Account Type:
-					<select name="accountTypeId">
+					<select name="accountId">
 						<option value="-1">---Select Account Type---</option>
 						<c:forEach items="${accountList}" var="account">
 							<option value="${account.accountId}">${account.title}</option>

@@ -38,4 +38,17 @@ public class UserDashboardController {
 		
 		return "UserDashboard";
 	}
+
+	@GetMapping("/myprofile")
+	public String myProfile() {
+		return "MyProfile";
+	}
+	
+	@GetMapping("/editprofile")
+	public String editProfile() {
+		return "EditMyProfile";
+	}
+	
+
+
 }

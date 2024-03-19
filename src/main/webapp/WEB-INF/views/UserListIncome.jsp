@@ -49,7 +49,7 @@
   	<!-- End Session Validate -->
 	
   	<!-- ======= Header ======= -->
-  	<jsp:include page="AdminHeader.jsp"></jsp:include>
+  	<jsp:include page="UserHeader.jsp"></jsp:include>
   	<!-- End Header -->
 
   	<!-- ======= Sidebar ======= -->

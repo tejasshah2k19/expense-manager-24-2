@@ -28,7 +28,7 @@ public class IncomeController {
 	StatusRepository statusRepo;
 	@Autowired
 	UserRepository userRepo;
-	
+
 	@GetMapping("/newincome")
 	public String newIncome(Model model) {
 		List<AccountEntity> accountList = accountRepo.findAll();
@@ -39,20 +39,28 @@ public class IncomeController {
 		model.addAttribute("userList", userList);
 		return "NewIncome";
 	}
-	
+
 	@PostMapping("/saveincome")
 	public String saveIncome(IncomeEntity income) {
+
+		// accountId
+		// income
+
+		AccountEntity account = accountRepo.findById(income.getAccountId()).get();
+		double newAmount = account.getAmount() + income.getAmount(); 
+		account.setAmount(newAmount);
+		accountRepo.save(account); 
 		incomeRepo.save(income);
 		return "redirect:/listincome";
 	}
-	
+
 	@GetMapping("/listincome")
 	public String listIncome(Model model) {
 		List<IncomeEntity> incomeList = incomeRepo.findAll();
 		model.addAttribute("incomeList", incomeList);
 		return "ListIncome";
 	}
-	
+
 	@GetMapping("/deleteincome")
 	public String deleteIncome(@RequestParam Integer incomeId) {
 		incomeRepo.deleteById(incomeId);

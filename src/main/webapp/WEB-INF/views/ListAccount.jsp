@@ -71,7 +71,7 @@
     	<section class="section dashboard">			
 			<table border="3">
 				<tr>
-					<th>Account Id</th>
+					 
 					<th>Title</th>
 					<th>Amount</th>
 					<th>Is Default</th>
@@ -80,7 +80,7 @@
 				</tr>
 				<c:forEach items="${accountList}" var="account">
 					<tr>
-						<td>${account.accountId}</td>
+						 
 						<td>${account.title}</td>
 						<td>${account.amount}</td>
 						<td>${account.isDefault}</td>

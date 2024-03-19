@@ -55,6 +55,10 @@ public class UserIncomeController {
 		incomeEntity.setUserId(user.getUserId());
 		incomeRepo.save(incomeEntity); 
 		
+		AccountEntity account = accountRepo.findById(incomeEntity.getAccountId()).get();
+		double newAmount = account.getAmount() + incomeEntity.getAmount(); 
+		account.setAmount(newAmount);
+		accountRepo.save(account); 
 		return "redirect:/userlistincome";
 	}
 	

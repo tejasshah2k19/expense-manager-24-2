@@ -9,7 +9,7 @@
 <meta charset="utf-8">
 <meta content="width=device-width, initial-scale=1.0" name="viewport">
 
-<title>New Income | Expense Manager</title>
+<title>Edit User Profile | Expense Manager</title>
 <meta content="" name="description">
 <meta content="" name="keywords">
 
@@ -64,11 +64,11 @@
 	<main id="main" class="main">
 
 		<div class="pagetitle">
-			<h1>New Income</h1>
+			<h1>Edit Profile</h1>
 			<nav>
 				<ol class="breadcrumb">
 					<li class="breadcrumb-item"><a href="/">Home</a></li>
-					<li class="breadcrumb-item active">New Income</li>
+					<li class="breadcrumb-item active">Edit User Profile</li>
 				</ol>
 			</nav>
 		</div>
@@ -79,56 +79,45 @@
 				<div class="col-lg-8">
 					<div class="card">
 						<div class="card-body">
-							<div class="card-title">New Income</div>
-							<form action="usersaveincome" method="post">
+							<div class="card-title">Edit Profile</div>
+							<form action="updatemyprofile" method="post">
 
 
 								<div class="row mb-3">
-									<label for="inputText" class="col-sm-2 col-form-label">Title</label>
+									<label for="inputText" class="col-sm-2 col-form-label">FirstName</label>
 									<div class="col-sm-8">
-										<input type="text" class="form-control" name="title">
-									</div>
-								</div>
-
-
-								<div class="row mb-3">
-									<label for="inputText" class="col-sm-2 col-form-label">Amount</label>
-									<div class="col-sm-8">
-										<input type="text" class="form-control" name="amount">
+										<input type="text" class="form-control" name="title"
+											value="${user.firstName}">
 									</div>
 								</div>
 
 								<div class="row mb-3">
-									<label for="inputText" class="col-sm-2 col-form-label">Account</label>
+									<label for="inputText" class="col-sm-2 col-form-label">LastName</label>
 									<div class="col-sm-8">
-										<select name="accountId" class="form-select">
-													<option>--Select Account--</option>
-													<c:forEach items="${accounts}" var="a">
-														<option value="${a.accountId }">${a.title}</option>
-													</c:forEach>
-										</select>
+										<input type="text" class="form-control" name="title"
+											value="${user.lastName}">
 									</div>
 								</div>
+
+
+							 
 
 								<div class="row mb-3">
-									<label for="inputText" class="col-sm-2 col-form-label">Date</label>
+								<label for="inputText" class="col-sm-2 col-form-label">Gender</label>
+
 									<div class="col-sm-8">
-										<input type="date" class="form-control" name="date">
+										<input class="form-check-input" type="radio" name="gender"
+											id="male" value="Male"  ${user.gender.equalsIgnoreCase("Male")?"checked":""}  > <label
+											class="form-check-label" for="male"  >Male</label> <input
+											class="form-check-input" type="radio" name="gender"
+											id="female" value="Female"  ${user.gender.equalsIgnoreCase("Female")?"checked":""}> <label
+											class="form-check-label" for="female">Female</label>
 									</div>
 								</div>
-
-								<div class="row mb-3">
-									<label for="inputText" class="col-sm-2 col-form-label">Description</label>
-									<div class="col-sm-8">
-										<textarea name="description" class="form-control"></textarea> 
-									</div>
-								</div>
-
-
 
 
 								<input type="submit" class="btn btn-primary"
-									value="Save Account"> <a href="userlistincome"
+									value="Update Profile"> <a href="myprofile"
 									class="btn btn-danger">Cancel</a>
 
 							</form>
