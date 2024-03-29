@@ -69,34 +69,32 @@
     	</div><!-- End Page Title -->
 
     	<section class="section dashboard">
-			<table border="3">
+			<table border="2" class="table table-bordered">
 				<tr>
-					<th>Expense Id</th>
-					<th>Title</th>
-					<th>Category Id</th>
-					<th>Sub-category Id</th>
-					<th>Vendor Id</th>
-					<th>Account Type Id</th>
-					<th>Status Id</th>
+					<th>Expense Title</th>
+					<th>Category</th>
+					<th>Sub-category</th>
+					<th>Vendor</th>
+					<th>Account</th>
+					<th>Status</th>
 					<th>Amount</th>
 					<th>Date</th>
 					<th>Description</th>
-					<th>User Id</th>
+					<th>User</th>
 					<th>Action</th>
 				</tr>
 				<c:forEach items="${expenseList}" var="expense">
 					<tr>
-						<td>${expense.expenseId}</td>
+ 						<td>${expense.expenseTitle}</td>
+						<td>${expense.categoryName}</td>
+						<td>${expense.subCategoryName}</td>
+						<td>${expense.vendorName}</td>
 						<td>${expense.title}</td>
-						<td>${expense.categoryId}</td>
-						<td>${expense.subcategoryId}</td>
-						<td>${expense.vendorId}</td>
-						<td>${expense.accountTypeId}</td>
-						<td>${expense.statusId}</td>
+						<td>${expense.statusName}</td>
 						<td>${expense.amount}</td>
 						<td>${expense.date}</td>
 						<td>${expense.description}</td>
-						<td>${expense.userId}</td>
+						<td>${expense.firstName}</td>
 						<td><a href="deleteexpense?expenseId=${expense.expenseId}">Delete</a></td>
 					</tr>
 				</c:forEach>

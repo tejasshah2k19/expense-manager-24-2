@@ -78,10 +78,10 @@
 				</tr>
 				<c:forEach items="${subcategoryList}" var="subcategory">
 					<tr>
-						<td>${subcategory.subcategoryId}</td>
-						<td>${subcategory.subcategoryName}</td>
+						<td>${subcategory.subCategoryId}</td>
+						<td>${subcategory.subCategoryName}</td>
 						<td>${subcategory.categoryId}</td>
-						<td><a href="deletesubcategory?subcategoryId=${subcategory.subcategoryId}">Delete</a></td>
+						<td><a href="deletesubcategory?subcategoryId=${subcategory.subCategoryId}">Delete</a></td>
 					</tr>
 				</c:forEach>
 			</table>

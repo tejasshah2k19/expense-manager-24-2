@@ -9,6 +9,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
+import com.arth.dto.SubCategoryDto;
 import com.arth.entity.CategoryEntity;
 import com.arth.entity.SubcategoryEntity;
 import com.arth.repository.CategoryRepository;
@@ -37,8 +38,13 @@ public class SubcategoryController {
 	
 	@GetMapping("/listsubcategory")
 	public String listSubcategory(Model model) {
-		List<SubcategoryEntity> subcategoryList = subcategoryRepo.findAll();
+		List<SubCategoryDto> subcategoryList = subcategoryRepo.getAllSub();
 		model.addAttribute("subcategoryList", subcategoryList);
+		for(SubCategoryDto s:subcategoryList) {
+			System.out.println(s);
+			System.out.println(s.getCategoryName());
+		}
+		
 		return "ListSubcategory";
 	}
 	

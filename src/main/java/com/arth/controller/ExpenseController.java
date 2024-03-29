@@ -9,6 +9,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
+import com.arth.dto.ExpenseDto;
 import com.arth.entity.AccountEntity;
 import com.arth.entity.CategoryEntity;
 import com.arth.entity.ExpenseEntity;
@@ -66,7 +67,7 @@ public class ExpenseController {
 	
 	@GetMapping("/listexpense")
 	public String listExpense(Model model) {
-		List<ExpenseEntity> expenseList = expenseRepo.findAll();
+		List<ExpenseDto> expenseList = expenseRepo.getAllExpenses();
 		model.addAttribute("expenseList", expenseList);
 		return "ListExpense";
 	}

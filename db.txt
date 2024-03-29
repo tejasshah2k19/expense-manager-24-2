@@ -68,6 +68,55 @@ insert into expenses
 
 
 
+select * from expenses; 
+
+select * from accounts; 
+
+select * from users; 
+
+
+select * from expenses; 
+select * from users; 
+
+
+select * from expenses , users where expenses.user_id = users.user_id ; 
+
+select e.amount,e.description,u.first_name from expenses e, users u where e.user_id = u.user_id ; 
+
+
+select e.amount,e.description,e.date,u.first_name from expenses e, users u where e.user_id = u.user_id ; 
+
+status table -> 
+
+select e.amount,e.description,e.date, u.first_name,s.status_name 
+from expenses e, users u , status s 
+where e.user_id = u.user_id and s.status_id = e.status_id; 
+
+
+account table -> 
+
+select e.amount,e.description,e.date, u.first_name,s.status_name,a.title 
+from expenses e, users u , status s,accounts a 
+where e.user_id = u.user_id and s.status_id = e.status_id and a.account_id = e.account_id; 
+
+vendor table -> 
+
+select e.amount,e.description,e.date, u.first_name,s.status_name,a.title , v.vendor_name 
+from expenses e, users u , status s,accounts a,vendors v  
+where e.user_id = u.user_id and s.status_id = e.status_id and a.account_id = e.account_id and v.vendor_id = e.vendor_id; 
+
+cagegory and subcategory -> 
+
+
+select  e.title as expenseTitle ,e.expense_id as expenseId,e.amount,e.description,e.date, u.first_name as firstName,s.status_name as statusName ,a.title , v.vendor_name as vendorName ,c.category_name as categoryName,sc.subcategory_name as subCategoryName 
+from expenses e, users u , status s,accounts a,vendors v,categories c,subcategories sc   
+where e.user_id = u.user_id and s.status_id = e.status_id and a.account_id = e.account_id and v.vendor_id = e.vendor_id
+	and c.category_id = e.category_id and sc.subcategory_id = e.subcategory_id; 
+
+
+
+DTO -> interface -> getters 
+
 
 
 
