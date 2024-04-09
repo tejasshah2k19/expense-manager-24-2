@@ -6,9 +6,11 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
 
 import com.arth.entity.UserEntity;
 import com.arth.repository.ExpenseRepository;
+import com.arth.repository.UserRepository;
 
 import jakarta.servlet.http.HttpSession;
 
@@ -17,6 +19,9 @@ public class UserDashboardController {
 
 	@Autowired
 	ExpenseRepository expRepo;
+	
+	@Autowired
+	UserRepository userRepo; 
 	
 	@GetMapping("/userdashboard")
 	public String userDashboard(HttpSession session,Model model) {
@@ -47,6 +52,22 @@ public class UserDashboardController {
 	@GetMapping("/editprofile")
 	public String editProfile() {
 		return "EditMyProfile";
+	}
+	
+	@PostMapping("/updatemyprofile")
+	public String updateMyProfile(UserEntity user) {
+		
+		
+		UserEntity dbUser = userRepo.findById(user.getUserId()).get(); 
+		
+		dbUser.setFirstName(user.getFirstName());
+		dbUser.setLastName(user.getLastName());
+		dbUser.setGender(user.getGender());
+		
+		
+		userRepo.save(dbUser);
+		
+		return "MyProfile";
 	}
 	
 

@@ -82,7 +82,7 @@
 							<div class="card-title">Edit Profile</div>
 							<form action="updatemyprofile" method="post">
 
-
+								<input type="hidden" name="userId" value="${user.userId}"/>
 								<div class="row mb-3">
 									<label for="inputText" class="col-sm-2 col-form-label">FirstName</label>
 									<div class="col-sm-8">

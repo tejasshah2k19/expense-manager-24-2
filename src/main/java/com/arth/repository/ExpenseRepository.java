@@ -27,4 +27,8 @@ public interface ExpenseRepository extends JpaRepository<ExpenseEntity, Integer>
 			+ "	and c.category_id = e.category_id and sc.subcategory_id = e.subcategory_id",nativeQuery = true)
 	List<ExpenseDto> getAllExpenses();
 	
+
+	@Query(value = " select sum(amount),month(date) from expenses group by month(date)",nativeQuery = true)
+	List<Integer[]> getExpenseSumByMonth();
+
 }

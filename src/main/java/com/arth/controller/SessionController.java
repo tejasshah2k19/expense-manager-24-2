@@ -60,7 +60,7 @@ public class SessionController {
 			else if(loggedinUser.getRoleId() == null) {
 				model.addAttribute("error", "Something went wrong!");
 			} else if(loggedinUser.getRoleId() == 1) {
-				return "AdminDashboard";
+				return "redirect:/admindashboard";
 			} else if(loggedinUser.getRoleId() == 2) {
 				return "redirect:/userdashboard";
 			}
