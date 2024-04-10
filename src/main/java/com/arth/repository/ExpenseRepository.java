@@ -35,4 +35,13 @@ public interface ExpenseRepository extends JpaRepository<ExpenseEntity, Integer>
 	@Query(value = " select sum(amount),month(date) from expenses where user_id = :userId group by month(date)",nativeQuery = true)
 	List<Integer[]> getExpenseSumByMonthByUser(Integer userId);
 
+
+	@Query(value = "select sum(amount),c.category_name  from expenses e,categories c  where c.category_id = e.category_id group by e.category_id",nativeQuery = true)
+	List<Integer[]> getMonthlyCategorywise();
+	
+
+	@Query(value = "select sum(amount),c.category_name  from expenses e,categories c  where c.category_id = e.category_id  and e.user_id = :userId group by e.category_id",nativeQuery = true)
+	List<Integer[]> getMonthlyCategorywiseByUser(Integer userId);
+	
+	
 }
