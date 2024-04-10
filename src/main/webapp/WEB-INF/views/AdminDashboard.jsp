@@ -213,9 +213,14 @@
 					<!-- End Left side columns -->
 
 				</div>
-		</section> 
-		<div>
-			<canvas id="myChart"></canvas>
+		</section>
+		<div class="card info-card sales-card">
+
+			<div class="card-body">
+				<div>
+					<canvas id="myChart"></canvas>
+				</div>
+			</div>
 		</div>
 
 	</main>
@@ -242,7 +247,7 @@
 	<!-- Template Main JS File -->
 	<script src="assets/js/main.js"></script>
 	<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-	
+
 	<script>
   const ctx = document.getElementById('myChart');
 
@@ -251,7 +256,7 @@
     data: {
       labels: ['Jan', 'Feb', 'March', 'April', 'May', 'June','July','Aug','Sep','Oct','Nov','Dec'],
       datasets: [{
-        label: '# of Votes',
+        label: 'Month Wise Expense',
         data: [${datamap.get('1')},${datamap.get('2')},${datamap.get('3')},${datamap.get('4')},${datamap.get('5')},${datamap.get('6')},${datamap.get('7')},${datamap.get('8')},${datamap.get('9')},${datamap.get('10')},${datamap.get('11')},${datamap.get('12')}],
         borderWidth: 1
       }]
@@ -266,7 +271,7 @@
   });
 </script>
 
-  
+
 
 </body>
 

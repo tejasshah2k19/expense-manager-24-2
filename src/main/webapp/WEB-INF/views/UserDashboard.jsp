@@ -202,9 +202,17 @@
 				</div>
 		</section>
 
-		<div>
-			<canvas id="myChart"></canvas>
+		<div class="card info-card sales-card">
+
+
+
+			<div class="card-body">
+				<div>
+					<canvas id="myChart"></canvas>
+				</div>
+			</div>
 		</div>
+
 
 	</main>
 	<!-- End #main -->
@@ -239,7 +247,7 @@
     data: {
       labels: ['Jan', 'Feb', 'March', 'April', 'May', 'June','July','Aug','Sep','Oct','Nov','Dec'],
       datasets: [{
-        label: '# of Votes',
+        label: 'Month Wise Expense',
         data: [${datamap.get('1')},${datamap.get('2')},${datamap.get('3')},${datamap.get('4')},${datamap.get('5')},${datamap.get('6')},${datamap.get('7')},${datamap.get('8')},${datamap.get('9')},${datamap.get('10')},${datamap.get('11')},${datamap.get('12')}],
         borderWidth: 1
       }]
